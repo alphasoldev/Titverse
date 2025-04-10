@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>$TIP - 3D Rotation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      margin: 0;
+      background: #000;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      perspective: 1000px;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .glitch3d {
+      font-size: 10rem;
+      text-transform: uppercase;
+      color: #a020f0;
+      transform-style: preserve-3d;
+      animation: rotate 10s linear infinite, glitch-anim 2.5s infinite;
+      letter-spacing: 5px;
+      position: relative;
+    }
+
+    .glitch3d::before,
+    .glitch3d::after {
+      content: '$TIP';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff00ff;
+      z-index: -1;
+    }
+
+    .glitch3d::after {
+      color: #00ffff;
+      transform: translate(3px, -3px);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    @keyframes glitch-anim {
+      0% {
+        text-shadow: 2px 2px #ff00ff, -2px -2px #0000ff;
+      }
+      20% {
+        text-shadow: -2px -2px #ff00ff, 2px 2px #0000ff;
+      }
+      40% {
+        text-shadow: 2px -2px #ff00ff, -2px 2px #0000ff;
+      }
+      60% {
+        text-shadow: -1px 1px #ff00ff, 1px -1px #0000ff;
+      }
+      80% {
+        text-shadow: 1px 1px #ff00ff, -1px -1px #0000ff;
+      }
+      100% {
+        text-shadow: 2px 2px #ff00ff, -2px -2px #0000ff;
+      }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.75rem;
+      color: #5c2c87;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch3d">$TIP</div>
+  <div class="footer">@Copyrights Trump Insider Trading</div>
+</body>
+</html>
